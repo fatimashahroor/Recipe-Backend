@@ -4,7 +4,7 @@ function loadEnv($path) {
         throw new Exception(".env file not found");
     }
     
-    
+
     $lines = file($path, FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
     foreach ($lines as $line) {
         if (strpos($line, '=') !== false) {
@@ -22,7 +22,7 @@ function loadEnv($path) {
 }
 
 function dbConnect() {
-    loadEnv('.env');
+    loadEnv(__DIR__ . '/../.env');
 
     $host = getenv('DB_HOST');
     $username = getenv('DB_USERNAME');
