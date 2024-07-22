@@ -1,11 +1,6 @@
 <?php
     require(__DIR__ . '/../config/connection.php');
     class Recipe{
-        public $id;
-        public $recipeName;
-        public $ingredients;
-        public $createdBy;
-        public $recipeDesc;
         public $conn;
 
         public function __construct(){
