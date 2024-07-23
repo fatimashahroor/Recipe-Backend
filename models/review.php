@@ -16,5 +16,17 @@
             return $stmt;
         }
 
+        public function insertReview($posted_by, $recipe_id, $star, $comment) {
+            $query= 'INSERT INTO reviews 
+            (posted_by, recipe_id, star, comment, created_on) 
+            VALUES (?,?,?,?,?);';
+            $date = date("Y-m-d H:i:s");
+            $stmt = $this->conn->prepare($query);
+            $stmt->bind_param('iiiss', $posted_by, $recipe_id, $star, $comment, $date);
+            if ($stmt->execute()) {
+                return true;
+            } else 
+                return false;
+        }
     }
 ?>
